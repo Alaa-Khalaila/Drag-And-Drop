@@ -1,0 +1,63 @@
+<section class="container">
+  <header>
+    <app-header [type]="type"></app-header>
+    <app-search-input
+      [searchInput]="searchInput"
+      (onChange)="onSearchChange($event)"
+    ></app-search-input>
+  </header>
+
+  <main>
+    <div class="row d-flex justify-content-between">
+      <div class="example-container col pt-2" test-drag-list>
+        <h2 id="h2-test">Available {{ type }}</h2>
+        <div
+          cdkDropList
+          #itemsList="cdkDropList"
+          [cdkDropListData]="items"
+          [cdkDropListConnectedTo]="[selectedItemsList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <app-drag-and-drop-item
+            (dblclick)="onItemsDblClick(item)"
+            class="example-box"
+            *ngFor="
+              let item of items | slice: (page - 1) * pageSize:page * pageSize
+            "
+            cdkDrag
+            [item]="item"
+            test-drag-item
+          ></app-drag-and-drop-item>
+        </div>
+        <ngb-pagination
+          [(page)]="page"
+          [pageSize]="pageSize"
+          [collectionSize]="items.length"
+          class="pagination"
+        ></ngb-pagination>
+      </div>
+
+      <div class="example-container col pt-2" test-drag-list>
+        <h2>Selected {{ type }}</h2>
+
+        <div
+          cdkDropList
+          #selectedItemsList="cdkDropList"
+          [cdkDropListData]="selectedItems"
+          [cdkDropListConnectedTo]="[itemsList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <app-drag-and-drop-item
+            (dblclick)="onSelectedItemsDblClick(selectedItem)"
+            *ngFor="let selectedItem of selectedItems"
+            cdkDrag
+            [selectedItem]="selectedItem"
+            (btnClick)="deleteClick(selectedItem)"
+          ></app-drag-and-drop-item>
+        </div>
+      </div>
+    </div>
+  </main>
+</section>

@@ -1,0 +1,11 @@
+.iconn {
+  position: relative;
+}
+
+.delete-icon {
+  color: red;
+  position: absolute;
+  cursor: pointer;
+  right: 7px;
+  bottom: 15px;
+}
