@@ -89,23 +89,19 @@
   "names": [
     {
       "id": 1,
-      "name": "Alaa",
-      "price": 2300
+      "name": "Alaa"
     },
     {
       "id": 2,
-      "name": "Alaa2",
-      "price": 2300
+      "name": "Alaa2"
     },
     {
       "id": 3,
-      "name": "Alaa3",
-      "price": 2300
+      "name": "Alaa3"
     },
     {
       "id": 4,
-      "name": "Alaa4",
-      "price": 2300
+      "name": "Alaa4"
     }
   ]
 }

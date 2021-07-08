@@ -6,7 +6,7 @@
   <div class="text-info col-5">
     {{ selectedItem.name }}
   </div>
-  <div class="col-5">
+  <div class="col-5" *ngIf="selectedItem.price">
     <div>Price:</div>
     <div>
       {{ selectedItem.price }}
